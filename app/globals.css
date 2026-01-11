@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .input-label {
+    @apply block text-xs font-bold text-slate-500 mb-1 uppercase tracking-wide;
+  }
+  
+  .input-field {
+    /* HATA ÇÖZÜMÜ: focus:border-primary ve focus:ring kısımlarını buradan kaldırdık */
+    @apply w-full h-12 px-4 rounded-lg border border-slate-300 bg-white outline-none transition-all placeholder:text-slate-400 text-slate-800 text-sm font-medium shadow-sm;
+  }
+  
+  /* Özel renkleri burada standart CSS ile tanımlıyoruz */
+  .input-field:focus {
+    border-color: #135bec; /* primary rengi */
+    box-shadow: 0 0 0 4px rgba(19, 91, 236, 0.1); /* ring-primary/10 */
+  }
+
+  /* Kağıt üzerindeki düzenlenebilir alanlar */
+  .paper-input {
+    @apply w-full bg-transparent border-b border-transparent hover:border-slate-300 outline-none transition-colors px-1;
+  }
+  .paper-input:focus {
+    border-color: #135bec;
+  }
+
+  .paper-textarea {
+    @apply w-full bg-transparent border-l-2 border-transparent hover:border-slate-300 outline-none transition-colors px-2 resize-none overflow-hidden;
+  }
+  .paper-textarea:focus {
+    border-color: #135bec;
+  }
+}
+
+body {
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+.custom-scrollbar::-webkit-scrollbar { width: 6px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+.custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+.custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+.pdf-page {
+    box-shadow: 0 20px 60px -10px rgba(0, 0, 0, 0.2);
+}
+
+/* --- GELİŞMİŞ YAZDIRMA AYARLARI --- */
+@media print {
+    /* Her şeyi gizle */
+    body * {
+        visibility: hidden;
+        height: auto; 
+        overflow: visible; 
+    }
+    
+    /* Sadece yazdırma alanını göster */
+    #print-area, #print-area * {
+        visibility: visible;
+    }
+
+    /* Yazdırma alanını sayfaya tam oturt */
+    #print-area {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        margin: 0;
+        padding: 20mm; /* Kağıt kenar boşluğu */
+        background: white;
+        z-index: 9999;
+        box-shadow: none;
+    }
+
+    /* Tarayıcı varsayılanlarını sıfırla */
+    @page {
+        size: A4;
+        margin: 0;
+    }
+}
