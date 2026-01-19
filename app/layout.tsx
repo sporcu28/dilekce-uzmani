@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google"; 
+import Script from "next/script"; // Script bileşeni eklendi
 import "./globals.css";
 
 const manrope = Manrope({ 
@@ -20,9 +21,9 @@ export const metadata: Metadata = {
     "istifa dilekçesi örneği", "mahkeme dilekçesi", "yapay zeka hukuk", 
     "ücretsiz arzuhalci", "android dilekçe uygulaması"
   ],
-  authors: [{ name: "Fomenta" }],
+  authors: [{ name: "Erhan Güneş" }],
   
-  // --- GOOGLE SEARCH CONSOLE DOĞRULAMA KODU ---
+  // --- GOOGLE SEARCH CONSOLE DOĞRULAMA KODU BURAYA EKLENDİ ---
   verification: {
     google: '8coEqODpstgF-h--ST3vynMNdi2jLTBkU50-sm6okuk',
   },
@@ -41,7 +42,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Google Schema (Yapısal Veri)
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
@@ -59,7 +59,16 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </head>
-      <body className="bg-background-light text-slate-900 antialiased selection:bg-primary/20 selection:text-primary">
+      <body className="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col overflow-hidden antialiased selection:bg-primary/20 selection:text-primary">
+        
+        {/* --- GOOGLE ADSENSE KODU --- */}
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5070700660447098"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
+
         {children}
       </body>
     </html>
