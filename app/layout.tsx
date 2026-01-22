@@ -26,7 +26,18 @@ export const metadata: Metadata = {
   // --- GOOGLE SEARCH CONSOLE DOĞRULAMA KODU BURAYA EKLENDİ ---
   verification: {
     google: '8coEqODpstgF-h--ST3vynMNdi2jLTBkU50-sm6okuk',
+    
   },
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1TWH1BT64M"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1TWH1BT64M');
+</script>
 
   openGraph: {
     title: "Dilekçe Asistanım - 1 Dakikada Hazır",
