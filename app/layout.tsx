@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     "istifa dilekçesi örneği", "mahkeme dilekçesi", "yapay zeka hukuk", 
     "ücretsiz arzuhalci", "android dilekçe uygulaması"
   ],
-  authors: [{ name: "Erhan Güneş" }],
+  authors: [{ name: "Fomenta" }],
   
   // --- GOOGLE SEARCH CONSOLE DOĞRULAMA KODU BURAYA EKLENDİ ---
   verification: {
