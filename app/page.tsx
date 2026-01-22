@@ -244,6 +244,17 @@ export default function Page() {
                 ) : (<div className="flex flex-col items-center justify-center h-full text-slate-300 select-none"><Gavel className="w-24 h-24 mb-4 opacity-20"/><p className="font-bold text-xl uppercase tracking-widest text-slate-300">Önizleme Bekleniyor</p></div>)}
             </div>
         </aside>
+        
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1TWH1BT64M"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1TWH1BT64M');
+</script>
+
       </main>
     </div>
   )
